@@ -11,7 +11,7 @@ if [[ ! -d $PUBLIC ]]; then
 fi
 
 
-if [[ $2 ]]; then
+if [[ "${2}" == "1" ]]; then
     echo "Installing Wordpress"
     if [[  -d $PUBLIC ]]; then
     echo "Removong Public Directory ${PUBLIC}"
@@ -47,6 +47,6 @@ if [[  -e "/etc/apache2/sites-available/${DOMAIN}.conf" ]]; then
     service apache2 reload
 fi
 
-if [[ $3 ]]; then
+if [[ "${3}" == 1 ]]; then
     /usr/bin/certbot --apache -d $DOMAIN
 fi
